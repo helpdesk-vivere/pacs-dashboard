@@ -1,0 +1,153 @@
+:root{
+  --bg:#1e293b;
+  --card:#334155;
+  --card2:#475569;
+  --text:#f8fafc;
+  --muted:#cbd5e1;
+  --primary:#60a5fa;
+}
+
+.light{
+  --bg:#e5e7eb;
+  --card:#f3f4f6;
+  --card2:#e5e7eb;
+  --text:#111827;
+  --muted:#6b7280;
+}
+
+body{
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+header{
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.header-img{
+  width:60px;
+  height:50px;
+}
+
+.header-text h1{
+  margin:0;
+  font-size:22px;
+}
+
+button{
+  background:var(--primary);
+  color:#fff;
+  padding:8px 14px;
+  border:none;
+  border-radius:10px;
+}
+
+.filters{
+  display:flex;
+  gap:10px;
+  padding:0 20px 20px;
+  flex-wrap:wrap;
+}
+
+.filters input, .filters select{
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  background:var(--card2);
+  color:var(--text);
+}
+
+.kpi-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap:10px;
+  padding:0 20px;
+}
+
+.kpi-card{
+  background:linear-gradient(135deg,var(--card),var(--card2));
+  padding:10px;
+  border-radius:12px;
+  font-size:11px;
+}
+
+.kpi{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.kpi-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:8px;
+}
+
+.kpi-card span{
+  display:block;
+  margin-top:4px;
+}
+
+.kpi{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.chart-container{
+  display:grid;
+  grid-template-columns:2fr 2fr 1.2fr;
+  gap:20px;
+  padding:20px;
+}
+
+.card{
+  background:linear-gradient(135deg,var(--card),var(--card2));
+  border-radius:16px;
+  padding:15px;
+  height:420px;
+
+  display:flex;
+  flex-direction:column;
+  overflow:hidden; /* 👈 evita vazamento */
+}
+
+.card canvas{
+  max-height: 350px;
+}
+
+.card h4{
+  margin-bottom:10px;
+}
+
+/* 👇 ESSENCIAL */
+.card canvas{
+  flex:1;
+  width:100% !important;
+  height:100% !important;
+}
+
+@media (max-width:1024px){
+  .chart-container{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:768px){
+  .chart-container{
+    grid-template-columns:1fr;
+  }
+  .card{
+    height:260px;
+  }
+}

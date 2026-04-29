@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>PACS Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+
+<body class="light">
+
+<header>
+  <div class="header">
+    <img src="grafico.jpg" class="header-img">
+    <div class="header-text">
+      <h1>PACS DASHBOARD</h1>
+      <span>Monitoramento inteligente de exames</span>
+    </div>
+  </div>
+  <button onclick="toggleTheme()">Tema</button>
+</header>
+
+<div class="filters">
+  <input type="date" id="dataInicio">
+  <input type="date" id="dataFim">
+  <select id="hospital"></select>
+  <button onclick="carregarTudo()">Filtrar</button>
+</div>
+
+<div class="kpi-container">
+  <div class="kpi-card">Exames<br><span id="totalExames" class="kpi">0</span></div>
+  <div class="kpi-card">Pacientes<br><span id="totalPacientes" class="kpi">0</span></div>
+  <div class="kpi-card">Exames Hoje<br><span id="examesHoje" class="kpi">0</span></div>
+  <div class="kpi-card">Masculino<br><span id="totalMasculino" class="kpi">0</span></div>
+  <div class="kpi-card">Feminino<br><span id="totalFeminino" class="kpi">0</span></div>
+  <div class="kpi-card">Pendentes de Laudo<br><span id="examesPendentes" class="kpi">0</span></div>
+  <div class="kpi-card">Laudo tempo médio (min)<br><span id="tatSR" class="kpi">0</span></div>
+  <div class="kpi-card">Laudo até 1h<br><span id="sla1h" class="kpi">0%</span></div>
+  <div class="kpi-card">Laudo até 2h<br><span id="sla2h" class="kpi">0%</span></div>
+</div>
+
+<div class="chart-container">
+  <div class="card">
+    <h4>Modalidades</h4>
+    <canvas id="modalidadesChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h4>Exames por dia</h4>
+    <canvas id="examesChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h4>Sexo</h4>
+    <canvas id="sexoChart"></canvas>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
